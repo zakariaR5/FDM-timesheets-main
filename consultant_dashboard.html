@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultant Dashboard</title>
+    <link rel="stylesheet" href="submit.css">
+    <script src="script.js"></script>
+</head>
+<body onload="checkAuth('consultant')">
+    <nav class="navbar">
+        <ul>
+            <li><a href="consultant_dashboard.html">Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>Welcome, Consultant!</h2>
+        <p>You can submit and view timesheets here.</p>
+    </div>
+</body>
+</html>

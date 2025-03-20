@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Image from Link</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Download Image from URL</h2>
+    <input type="text" id="imageUrl" placeholder="Enter Image URL">
+    <br>
+    <button onclick="previewImage()">Preview</button>
+    <button onclick="downloadImage()">Download</button>
+    <br>
+    <img id="preview" alt="Image Preview">
+    
+    <script>
+        function previewImage() {
+            const url = document.getElementById('imageUrl').value;
+            const img = document.getElementById('preview');
+            img.src = url;
+            img.style.display = 'block';
+        }
+
+        async function downloadImage() {
+            const url = document.getElementById('imageUrl').value;
+            if (!url) {
+                alert("Please enter an image URL.");
+                return;
+            }
+
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'downloaded-image';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                alert("Failed to download image. Make sure the URL is correct and accessible.");
+            }
+        }
+    </script>
+</body>
+</html>

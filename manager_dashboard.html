@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="submit.css">
+    <script src="script.js"></script>
+</head>
+<body onload="checkAuth('manager')">
+    <nav class="navbar">
+        <ul>
+            <li><a href="manager_dashboard.html">Dashboard</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <h2>Welcome, Manager!</h2>
+        <p>You can approve or reject timesheets here.</p>
+    </div>
+</body>
+</html>
